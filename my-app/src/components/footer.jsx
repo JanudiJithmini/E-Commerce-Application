@@ -23,7 +23,7 @@ const footer = () => {
             <p className='text-gray-700'>Email: info@example.com</p>
             <p className='text-gray-700'>Phone: +1 (123) 456-7890</p>
         </div>
-        <div className='col-span-3 text-center text-gray-600 mt-10'>
+        <div className='col-span-3 text-center text-gray-600 mt-10 pt-5 border-t border-gray-300'>
             <p>&copy; 2024 Your Company. All rights reserved.</p>
         </div>
     </div>
