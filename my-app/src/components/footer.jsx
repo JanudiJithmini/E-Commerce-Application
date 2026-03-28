@@ -3,7 +3,7 @@ import { assets } from '../assets/assets/frontend_assets/assets'
 
 const footer = () => {
   return (
-    <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm bg-gray-300 py-10 px-5'>
+    <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm '>
         <div>
             <img src={assets.logo} alt="Logo" className='w-36 mb-5' />
             <p className='text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br /> Voluptates, consequuntur.</p>
@@ -22,6 +22,9 @@ const footer = () => {
             <p className='text-gray-700'>123 Main Street, City, Country</p>
             <p className='text-gray-700'>Email: info@example.com</p>
             <p className='text-gray-700'>Phone: +1 (123) 456-7890</p>
+        </div>
+        <div className='col-span-3 text-center text-gray-600 mt-10'>
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
         </div>
     </div>
   )
