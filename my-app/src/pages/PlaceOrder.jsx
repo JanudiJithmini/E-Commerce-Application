@@ -1,9 +1,121 @@
-import React from 'react'
+import React, { useState } from "react";
+import Title from "../components/title";
+import CartTotal from "../components/CartTotal";
+import { assets } from "../assets/assets/frontend_assets/assets";
+import { useNavigate } from "react-router-dom";
 
 const PlaceOrder = () => {
+  const [method, setMethod] = useState("cod");
+  const navigate = useNavigate();
   return (
-    <div>PlaceOrder</div>
-  )
-}
+    <div className="flex flex-col sm:flex-row justify-between gap-4 pt-5 sm:pt-14 min-h-[80vh] border-t">
+      <div className="flex flex-col gap-4 w-full sm:max-w-[480px]">
+        <div className="text-xl sm:text-2xl my-3">
+          <Title text1={"DELIVERY"} text2={"INFORMATION"} />
+        </div>
+        <div className="flex gap-3">
+          <input
+            className="boreder border-gray-300 rounded py-1.5 px-3.5 w-full"
+            type="text"
+            placeholder=" First Name"
+          />
+          <input
+            className="boreder border-gray-300 rounded py-1.5 px-3.5 w-full"
+            type="text"
+            placeholder=" Last Name"
+          />
+        </div>
+        <input
+          className="boreder border-gray-300 rounded py-1.5 px-3.5 w-full"
+          type="email"
+          placeholder=" Email"
+        />
+        <input
+          className="boreder border-gray-300 rounded py-1.5 px-3.5 w-full"
+          type="text"
+          placeholder=" Address"
+        />
+        <div className="flex gap-3">
+          <input
+            className="boreder border-gray-300 rounded py-1.5 px-3.5 w-full"
+            type="text"
+            placeholder=" City"
+          />
+          <input
+            className="boreder border-gray-300 rounded py-1.5 px-3.5 w-full"
+            type="text"
+            placeholder=" State"
+          />
+        </div>
+        <div className="flex gap-3">
+          <input
+            className="boreder border-gray-300 rounded py-1.5 px-3.5 w-full"
+            type="number"
+            placeholder=" ZIP Code"
+          />
+          <input
+            className="boreder border-gray-300 rounded py-1.5 px-3.5 w-full"
+            type="text"
+            placeholder=" Country"
+          />
+        </div>
+        <input
+          className="boreder border-gray-300 rounded py-1.5 px-3.5 w-full"
+          type="number"
+          placeholder=" Phone Number"
+        />
+      </div>
+      {/* Right Side */}
+      <div className="mt-8">
+        <div className="mt-8 min-w-80">
+          <CartTotal />
+        </div>
+        <div className="mt-12">
+          <Title text1={"PAYMENT"} text2={"METHOD"} />
+          <div className="flex gap-3 flex-col lg:flex-row">
+            <div
+              onClick={() => setMethod("stripe")}
+              className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
+            >
+              <p
+                className={`min-w-3.5 h-3.5 border rounded-full ${method === "stripe" ? "bg-pink-500" : ""}`}
+              ></p>
+              <img className="mx-4 h-5" src={assets.stripe_logo} alt=""></img>
+            </div>
+            <div
+              onClick={() => setMethod("razorpay")}
+              className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
+            >
+              <p
+                className={`min-w-3.5 h-3.5 border rounded-full ${method === "razorpay" ? "bg-pink-500" : ""}`}
+              ></p>
+              <img className="mx-4 h-5" src={assets.razorpay_logo} alt=""></img>
+            </div>
+            <div
+              onClick={() => setMethod("cod")}
+              className="flex items-center gap-3 border p-2 px-3 cursor-pointer"
+            >
+              <p
+                className={`min-w-3.5 h-3.5 border rounded-full ${method === "cod" ? "bg-pink-500" : ""}`}
+              ></p>
+              <p className="text-gray-500 text-sm font-medium">
+                CASH ON DELIVERY
+              </p>
+            </div>
+          </div>
+          <div className="w-full text-end mt-8">
+            <button
+              onClick={() => navigate("/orders")}
+              className="mt-8 border-t-2 bg-black text-white py-2 px-6  hover:bg-gray-800"
+            >
+              {" "}
+              PLACE ORDER
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default PlaceOrder
+export default PlaceOrder;

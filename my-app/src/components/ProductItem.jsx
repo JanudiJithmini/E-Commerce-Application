@@ -3,14 +3,15 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
 
+
 const ProductItem = ({ id, image, name, price }) => {
-  const { currency } = useContext(ShopContext);
+  const { curreny } = useContext(ShopContext);
 
   return (
     <div>
       <div className="h-full flex flex-col">
         <Link
-          to={'/product/${id}'}
+          to={`/product/${id}`}
           className="flex flex-col h-full border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
         >
           
@@ -18,7 +19,7 @@ const ProductItem = ({ id, image, name, price }) => {
             <img
               src={image[0]}
               alt={name}
-              className="w-full h-full object-cover hover:scale-110 transition duration-300"
+              className="w-full h-full object-cover hover:scale-105 transition duration-300"
             />
           </div>
 
@@ -26,7 +27,7 @@ const ProductItem = ({ id, image, name, price }) => {
           <div className="flex flex-col justify-between flex-1 p-2">
             <p className="text-sm line-clamp-2">{name}</p>
             <p className="text-gray-700 text-sm font-bold mt-2">
-              {currency}
+              {curreny}
               {price}
             </p>
           </div>
