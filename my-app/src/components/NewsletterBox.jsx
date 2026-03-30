@@ -11,7 +11,7 @@ const NewsletterBox = () => {
         <div>
             <h2 className='text-2xl font-bold mb-4'>Subscribe to Our Newsletter</h2>
             <p className='text-gray-600 mb-6'>Get the latest updates and offers</p>
-            <div onclick={onSubmitHandler} className='flex flex-col sm:flex-row gap-4 justify-center'>
+            <div onClick={onSubmitHandler} className='flex flex-col sm:flex-row gap-4 justify-center'>
                 <input
                     type='email'
                     placeholder='Enter your email'
