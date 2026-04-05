@@ -13,7 +13,7 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    image: {
+    images: {
         type: Array,
         required: true,
     },
@@ -22,7 +22,7 @@ const productSchema = new mongoose.Schema({
         required: true,
     },
 
-    subCategory: {
+    subcategory: {
         type: String,
         required: true,
     },

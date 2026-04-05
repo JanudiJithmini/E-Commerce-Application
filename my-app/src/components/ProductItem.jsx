@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
 
 
-const ProductItem = ({ id, image, name, price }) => {
+const ProductItem = ({ id, images, name, price }) => {
   const { curreny } = useContext(ShopContext);
 
   return (
@@ -17,7 +17,7 @@ const ProductItem = ({ id, image, name, price }) => {
           
           <div className="w-full h-48 overflow-hidden">
             <img
-              src={image[0]}
+              src={images[0]}
               alt={name}
               className="w-full h-full object-cover hover:scale-105 transition duration-300"
             />
