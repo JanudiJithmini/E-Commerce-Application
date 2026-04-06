@@ -10,22 +10,22 @@ const Cart = () => {
   const [cartData, setCartData] = React.useState([]);
 
   React.useEffect(() => {
-    let tempData = [];
-
-    for (const productId in cartItems) {
-      for (const size in cartItems[productId]) {
-        if (cartItems[productId][size] > 0) {
-          tempData.push({
-            _id: productId,
-            size: size,
-            quantity: cartItems[productId][size],
-          });
+    if (products.length > 0) {
+      let tempData = [];
+      for (const items in cartItems) {
+        for (const item in cartItems[items]) {
+          if (cartItems[items][item] > 0) {
+            tempData.push({
+              _id: items,
+              size: item,
+              quantity: cartItems[items][item],
+            });
+          }
         }
       }
+      setCartData(tempData);
     }
-
-    setCartData(tempData);
-  }, [cartItems]);
+  }, [cartItems, products]);
 
   return (
     <div className="border-t pt-14">
@@ -48,7 +48,7 @@ const Cart = () => {
             >
               {/* Product Image */}
               <img
-                src={productData.image[0]}
+                src={productData.images[0]}
                 alt=""
                 className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded"
               />
@@ -76,8 +76,16 @@ const Cart = () => {
                 className="border w-12 h-9 sm:w-16 sm:h-10 text-center rounded"
                 type="number"
                 min="1"
-                defaultValue={item.quantity}
-                onChange={(e) => e.target.value === '' || e.target.value <= 0 ? null: updateQuantity(item._id, item.size, Number(e.target.value))}
+                value={item.quantity} // Initial quantity value={item.quantity}
+                onChange={(e) =>
+                  e.target.value === "" || e.target.value <= 0
+                    ? null
+                    : updateQuantity(
+                        item._id,
+                        item.size,
+                        Number(e.target.value),
+                      )
+                }
               />
 
               {/* Delete Icon */}
@@ -92,10 +100,16 @@ const Cart = () => {
         })}
       </div>
       <div className="flex justify-end mt-10 px-4 sm:px-0">
-      <div className="w-full sm:w-[400px] bg-pink-300 shadow-md rounded-lg p-5 border">
+        <div className="w-full sm:w-[400px] bg-pink-300 shadow-md rounded-lg p-5 border">
           <CartTotal />
           <div className="w-full text-end">
-            <button  onClick={() => navigate("/place-order")} className="  border-t-2 bg-black text-white py-2 px-6  hover:bg-gray-800"> PROCEED TO CHECKOUT</button>
+            <button
+              onClick={() => navigate("/place-order")}
+              className="  border-t-2 bg-black text-white py-2 px-6  hover:bg-gray-800"
+            >
+              {" "}
+              PROCEED TO CHECKOUT
+            </button>
           </div>
         </div>
       </div>

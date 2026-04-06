@@ -8,7 +8,7 @@ import Contact from "./pages/Contact";
 import Login from "./pages/Login";
 import Orders from "./pages/Orders";
 import PlaceOrder from "./pages/PlaceOrder";
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
 import Product from "./pages/Product";
 import Footer from "./components/footer";
 import SearchBar from "./components/SearchBar";

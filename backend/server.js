@@ -6,6 +6,8 @@ import dns from "node:dns/promises";
 import connectCloudinary from "./config/cloudinary.js";
 import userRouter from "./routes/userRoutes.js";
 import productRouter from "./routes/productRoute.js";
+import cartRouter from "./routes/cartRoute.js";
+import orderRouter from "./routes/orderRoute.js";
 
 dns.setServers(['1.1.1.1', '8.8.8.8']);
 
@@ -23,6 +25,8 @@ app.get('/', (req, res) => {
 });
 app.use("/api/user", userRouter);
 app.use("/api/product", productRouter);
+app.use("/api/cart", cartRouter);
+app.use("/api/order", orderRouter);
 
 //Listener
 app.listen(PORT, () => {
